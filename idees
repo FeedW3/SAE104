@@ -1,0 +1,38 @@
+ENTITES
+Client
+    -nom
+    -prenom
+    -entreprise
+    -dateArrivee
+Employe
+    -nom
+    -prenom
+    -anciennete
+    -intituleDePoste
+    -estPrestataire
+Competences
+    -langage de prog
+    -saitFormer
+Equipe
+    -intitule
+Projet
+    -intitule
+    -dateDebut
+    -dateFin
+
+RELATIONS
+* les employés ne font pas nécessairement aprtie d'une équipe (prestaires)
+
+Employe--(appartenir|fonction)---->Equipe
+Equipe---(travaille sur)---------->Projet
+Client---(contrat|statut,duree)--->Projet
+Client---(loue prestation)-------->Employe
+Projet---(a besoin de)------------>Competence
+Employe--(possede)---------------->Competence
+Equipe---(maitrise)--------------->Competence
+
+EXEMPLE DE REQUETE
+récupérer les employés d'une équipe
+l'équipe en charge du projet
+l'état du contrat avec un client selon les projets
+lister les prestataires selon les clients
